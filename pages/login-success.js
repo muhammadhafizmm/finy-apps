@@ -6,7 +6,7 @@ export default function LoginSuccess() {
   const router = useRouter();
   useEffect(() => {
     setTimeout(() => {
-      router.push("/");
+      window.location.replace("/")
     }, 3000);
   }, []);
 
