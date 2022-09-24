@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import {
   Box,
@@ -16,26 +16,52 @@ import { theme } from "./_app";
 
 export default function Login() {
   const router = useRouter();
-  const [height, setHeight] = useState("100vh")
+  const [height, setHeight] = useState("100vh");
+
+  const askNotificationPermission = () => {
+    const validation = setToken();
+
+    // Event listener that listens for the push notification event in the background
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.addEventListener("message", (event) => {
+        console.log("event for the service worker", event);
+      });
+    }
+
+    // Calls the getMessage() function if the token is there
+    async function setToken() {
+      try {
+        const token = await firebaseCloudMessaging.init();
+        if (token) {
+          console.log("token", token);
+          return true;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+      return false;
+    }
+    return validation;
+  };
 
   useEffect(() => {
-    setHeight(window.innerHeight + "px")
-  }, [])
+    setHeight(window.innerHeight + "px");
+  });
   return (
     <Flex
       h={height}
       overflow="hidden"
-      bg={theme.color.marlboro}
+      bg={theme.color.rose}
       justifyContent="center"
       alignItems={"center"}
     >
       <Flex
-        w={{base: "90%", md: "unset"}}
+        w={{ base: "90%", md: "unset" }}
         flexDirection={"column"}
-        padding={{base:"1em 2em" ,md:"2em 4em"}}
+        padding={{ base: "1em 2em", md: "2em 4em" }}
         bg={theme.color.mild}
         height="fit-content"
-        borderRadius={"20px"}
+        borderRadius={"15px"}
       >
         <Flex
           cursor={"pointer"}
@@ -47,17 +73,22 @@ export default function Login() {
           <Text
             fontWeight={"bold"}
             color={theme.color.black}
-            fontSize={{base: "small", sm: "medium", md: "large"}}
+            fontSize={{ base: "small", sm: "medium", md: "large" }}
             marginLeft={".5em"}
           >
             Kembali
           </Text>
         </Flex>
-        <Box w={{base: "100%", md: 500}}>
-          <Image 
-          w={{base: "100px", md: "135px"}}
-          src="https://ik.imagekit.io/znmtfjgtk/Finy/logo-red-black_FYGp0atON.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663993532635"></Image>
-          <Text color={theme.color.ash} paddingBottom="2em" fontSize={{base: "small", md:"medium"}}>
+        <Box w={{ base: "100%", md: 500 }}>
+          <Image
+            w={{ base: "100px", md: "135px" }}
+            src="https://ik.imagekit.io/znmtfjgtk/Finy/logo-red-black_FYGp0atON.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663993532635"
+          ></Image>
+          <Text
+            color={theme.color.ash}
+            paddingBottom="2em"
+            fontSize={{ base: "small", md: "medium" }}
+          >
             Silakan masuk ke akun Anda untuk menghubungkan informasi transaksin
             anda
           </Text>
@@ -72,7 +103,12 @@ export default function Login() {
             <Input placeholder="Password One Mobile / Internet Banking" />
           </FormControl>
           <Button
-            onClick={() => router.push("/check-your-login-status")}
+            onClick={async () => {
+              const userAns = await askNotificationPermission();
+              if (userAns) {
+                router.push("/check-your-login-status")
+              }
+            }}
             bg={theme.color.marlboro}
             color={theme.color.mild}
             marginTop={"2em"}
@@ -86,7 +122,10 @@ export default function Login() {
           >
             Masuk
           </Button>
-          <Text color={theme.color.ash} fontSize={{base:"small", md:"medium"}}>
+          <Text
+            color={theme.color.ash}
+            fontSize={{ base: "small", md: "medium" }}
+          >
             Belum memiliki tabungan OCBC,{" "}
             <Link color={theme.color.marlboro}>Daftar sekarang!</Link>
           </Text>
