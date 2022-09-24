@@ -16,7 +16,8 @@ export const theme = extendTheme({
     black: "#000000",
   },
   breakpoints: {
-    sm: "320px",
+    xs: "360",
+    sm: "520px",
     md: "768px",
     lg: "960px",
     xl: "1200px",
