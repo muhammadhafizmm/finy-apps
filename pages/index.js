@@ -5,6 +5,7 @@ import {
   useMediaQuery,
   Text,
   Button,
+  Circle,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
@@ -19,7 +20,7 @@ export default function Home() {
       <Flex
         bg={theme.color.apple}
         position="relative"
-        height={"calc(100vh - 97px)"}
+        height={`calc(100vh - ${isMobile ? "62px" : "97px"})`}
         alignItems={"center"}
         flexDirection="column"
         top={isMobile ? 0 : 97}
@@ -30,6 +31,7 @@ export default function Home() {
           bottom={"-10%"}
           left={"8vh"}
           flexDirection="column"
+          zIndex={10}
         >
           <Image
             position={"relative"}
@@ -51,12 +53,13 @@ export default function Home() {
           alignItems="center"
           position={"absolute"}
           bottom="2em"
+          zIndex={10}
         >
           <Box>
             <Image
               w={"25vh"}
               maxW={isMobile ? "unset" : "100%"}
-              src="https://ik.imagekit.io/znmtfjgtk/Finy/Group_9__3__MBz9XcspV.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1664023310749"
+              src="https://ik.imagekit.io/znmtfjgtk/Finy/Group_9_86F5o3t9C.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664026150745"
             ></Image>
             <Box width={"35vh"} marginTop={"-1em"}>
               <Text
@@ -80,6 +83,12 @@ export default function Home() {
             </Button>
           </Box>
         </Flex>
+        <Circle
+        position={"absolute"}
+        bottom="-30vh"
+        bg={theme.color.marlboro}
+        size={"90vh"}
+        ></Circle>
       </Flex>
     </>
   );
