@@ -7,7 +7,7 @@ import {
   Button,
   Circle,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
 import { theme } from "./_app";
@@ -15,11 +15,11 @@ import { theme } from "./_app";
 export default function Home() {
   const router = useRouter();
   const [isMobile] = useMediaQuery("(max-width: 768px)");
-  const [height, setHeight] = useState("100vh")
+  const [height, setHeight] = useState("100vh");
 
   useEffect(() => {
-    setHeight(window.innerHeight + "px")
-  }, [])
+    setHeight(window.innerHeight + "px");
+  });
 
   return (
     <>
@@ -27,10 +27,10 @@ export default function Home() {
       <Flex
         bg={theme.color.apple}
         position="relative"
-        height={`calc(${height} - ${isMobile ? "62px" : "97px"})`}
+        height={`calc(${height} - ${isMobile ? "65px" : "73px"})`}
         alignItems={"center"}
         flexDirection="column"
-        top={isMobile ? 0 : 97}
+        top={{ base: 0, md: 73 }}
         overflow={"hidden"}
       >
         <Flex
@@ -45,17 +45,17 @@ export default function Home() {
             w={"30vh"}
             left={"6.5vh"}
             bottom={"20px"}
-            maxW={isMobile ? "unset" : "100%"}
+            maxW={{base: "none", md: "100%"}}
             src="https://ik.imagekit.io/znmtfjgtk/Finy/Notifications__5__4sPwyxHoj.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664023027008"
           />
           <Image
             h={"105vh"}
-            maxW={isMobile ? "unset" : "100%"}
+            maxW={{base: "none", md: "100%"}}
             src="https://ik.imagekit.io/znmtfjgtk/Finy/Frame_4__7__x9jh3G_qK.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664018979668"
           />
         </Flex>
         <Flex
-          w={isMobile ? "100%" : 768}
+          w={{base: "100%", md: 768}}
           flexDirection={"column"}
           alignItems="center"
           position={"absolute"}
@@ -65,7 +65,7 @@ export default function Home() {
           <Box>
             <Image
               w={"25vh"}
-              maxW={isMobile ? "unset" : "100%"}
+              maxW={{base: "none", md: "100%"}}
               src="https://ik.imagekit.io/znmtfjgtk/Finy/Group_9_86F5o3t9C.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664026150745"
             ></Image>
             <Box width={"35vh"} marginTop={"-1em"}>
@@ -91,10 +91,10 @@ export default function Home() {
           </Box>
         </Flex>
         <Circle
-        position={"absolute"}
-        bottom="-30vh"
-        bg={theme.color.marlboro}
-        size={"90vh"}
+          position={"absolute"}
+          bottom="-30vh"
+          bg={theme.color.rose}
+          size={"90vh"}
         ></Circle>
       </Flex>
     </>
