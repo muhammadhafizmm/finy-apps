@@ -11,7 +11,7 @@ import { theme } from "../pages/_app";
 
 const NAVBAR_DESKTOP_LIST_WIDTH = 520;
 
-export default function Navbar() {
+export default function Navbar({ auth }) {
   const router = useRouter();
   const [isMobile] = useMediaQuery("(max-width: 480px)");
   return (
@@ -27,7 +27,7 @@ export default function Navbar() {
     >
       <Box>
         <Image
-          width={{base: "65px", md:"80px"}}
+          width={{ base: "65px", md: "80px" }}
           maxW="none"
           src="https://ik.imagekit.io/znmtfjgtk/Finy/logo-red-black_FYGp0atON.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663993532635"
         />
@@ -61,21 +61,39 @@ export default function Navbar() {
           </Box>
           <Text fontWeight={"medium"}>EN</Text>
         </Flex>
-        <Button
-          size={{ base: "sm", md: "md" }}
-          onClick={() => router.push("/login")}
-          borderRadius={"10px"}
-          background={theme.color.marlboro}
-          color={theme.color.mild}
-          border="solid 2px transparent"
-          _hover={{
-            border: `solid 2px ${theme.color.marlboro}`,
-            color: theme.color.marlboro,
-            bg: theme.color.mild,
-          }}
-        >
-          <Text>Mulai Sekarang</Text>
-        </Button>
+        {!auth ? (
+          <Button
+            size={{ base: "sm", md: "md" }}
+            onClick={() => router.push("/login")}
+            borderRadius={"10px"}
+            background={theme.color.marlboro}
+            color={theme.color.mild}
+            border="solid 2px transparent"
+            _hover={{
+              border: `solid 2px ${theme.color.marlboro}`,
+              color: theme.color.marlboro,
+              bg: theme.color.mild,
+            }}
+          >
+            <Text>Mulai Sekarang</Text>
+          </Button>
+        ) : (
+          <Button
+            size={{ base: "sm", md: "md" }}
+            onClick={() => router.push("/")}
+            borderRadius={"10px"}
+            background={theme.color.marlboro}
+            color={theme.color.mild}
+            border="solid 2px transparent"
+            _hover={{
+              border: `solid 2px ${theme.color.marlboro}`,
+              color: theme.color.marlboro,
+              bg: theme.color.mild,
+            }}
+          >
+            <Text>Cabut Sambungan</Text>
+          </Button>
+        )}
       </Flex>
     </Flex>
   );

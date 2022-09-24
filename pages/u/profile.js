@@ -21,7 +21,7 @@ export default function Profile() {
   });
   return (
     <>
-      <Navbar />
+      <Navbar auth />
       <Flex justifyContent="center">
         <VStack
           position={"relative"}
@@ -316,9 +316,9 @@ export default function Profile() {
               bg: theme.color.mild,
             }}
           >
-            Kembali
+            Keluar
           </Button>
-          <Box padding={"30px"}></Box>
+          <Box padding={"15px"}></Box>
         </VStack>
       </Flex>
     </>
