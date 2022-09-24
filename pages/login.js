@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router";
 import {
   Box,
@@ -15,9 +16,14 @@ import { theme } from "./_app";
 
 export default function Login() {
   const router = useRouter();
+  const [height, setHeight] = useState("100vh")
+
+  useEffect(() => {
+    setHeight(window.innerHeight + "px")
+  }, [])
   return (
     <Flex
-      h="100vh"
+      h={height}
       overflow="hidden"
       bg={theme.color.marlboro}
       justifyContent="center"
