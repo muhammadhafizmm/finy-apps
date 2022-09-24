@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { theme } from "./_app";
+import { firebaseCloudMessaging } from "../utils/firebase";
 
 export default function Login() {
   const router = useRouter();
