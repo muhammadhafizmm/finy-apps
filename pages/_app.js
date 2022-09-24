@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Box, ChakraProvider, useToast } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { Box, ChakraProvider, Text, useToast } from "@chakra-ui/react";
 import { useMediaQuery } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 import * as firebase from "firebase/app";
@@ -27,6 +27,7 @@ export const theme = extendTheme({
 
 function MyApp({ Component, pageProps }) {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [tokenTest, setTokenTest] = useState("")
   const toast = useToast();
 
   useEffect(() => {
@@ -45,6 +46,7 @@ function MyApp({ Component, pageProps }) {
         const token = await firebaseCloudMessaging.init();
         if (token) {
           console.log("token", token);
+          setTokenTest(token)
           getMessage();
         }
       } catch (error) {
@@ -77,6 +79,7 @@ function MyApp({ Component, pageProps }) {
             : { display: "flex", justifyContent: "center" }
         }
       >
+        <Text>{tokenTest && tokenTest}</Text>
         <Box style={isMobile ? { maxWidth: "100%" } : { width: 768 }}>
           <Component {...pageProps} />
         </Box>
