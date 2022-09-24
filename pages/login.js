@@ -21,14 +21,6 @@ export default function Login() {
 
   const askNotificationPermission = () => {
     const validation = setToken();
-
-    // Event listener that listens for the push notification event in the background
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.addEventListener("message", (event) => {
-        console.log("event for the service worker", event);
-      });
-    }
-
     // Calls the getMessage() function if the token is there
     async function setToken() {
       try {

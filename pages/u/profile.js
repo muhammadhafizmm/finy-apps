@@ -89,15 +89,7 @@ export default function Profile() {
                         color={theme.color.mild}
                         fontSize="small"
                       >
-                        rata-rata cashflow bulanan kamu
-                      </Text>{" "}
-                      <Text
-                        fontWeight="bold"
-                        color={theme.color.mild}
-                        fontSize="small"
-                        paddingLeft={".2em"}
-                      >
-                        Rp. 5.877.190,00
+                        rata-rata cashflow bulanan kamu <b>Rp. 5.877.190,00</b>
                       </Text>
                     </Flex>
                   </Flex>
@@ -115,15 +107,7 @@ export default function Profile() {
                         color={theme.color.mild}
                         fontSize="small"
                       >
-                        hutang yang kamu miliki adalah
-                      </Text>{" "}
-                      <Text
-                        fontWeight="bold"
-                        color={theme.color.mild}
-                        fontSize="small"
-                        paddingLeft={".2em"}
-                      >
-                        Rp. 0,00
+                        hutang yang kamu miliki adalah <b>Rp. 0,00</b>
                       </Text>
                     </Flex>
                   </Flex>
@@ -148,15 +132,8 @@ export default function Profile() {
                         color={theme.color.mild}
                         fontSize="small"
                       >
-                        persentase tabungan terhadap income kamu
-                      </Text>{" "}
-                      <Text
-                        fontWeight="bold"
-                        color={theme.color.mild}
-                        fontSize="small"
-                        paddingLeft={".2em"}
-                      >
-                        hanya 18,7 %
+                        persentase tabungan terhadap income kamu{" "}
+                        <b>hanya 18,7 %</b>
                       </Text>
                     </Flex>
                   </Flex>
@@ -174,15 +151,8 @@ export default function Profile() {
                         color={theme.color.mild}
                         fontSize="small"
                       >
-                        tabungan kamu baru mencapai
-                      </Text>{" "}
-                      <Text
-                        fontWeight="bold"
-                        color={theme.color.mild}
-                        fontSize="small"
-                        paddingLeft={".2em"}
-                      >
-                        2,9x rata-rata pengeluaran
+                        tabungan kamu baru mencapai{" "}
+                        <b>2,9x rata-rata pengeluaran</b>
                       </Text>
                     </Flex>
                   </Flex>
@@ -200,15 +170,8 @@ export default function Profile() {
                         color={theme.color.mild}
                         fontSize="small"
                       >
-                        Uang yang kamu sisihkan untuk pembayaran asuransi
-                      </Text>{" "}
-                      <Text
-                        fontWeight="bold"
-                        color={theme.color.mild}
-                        fontSize="small"
-                        paddingLeft={".2em"}
-                      >
-                        Rp. 0,00
+                        Uang yang kamu sisihkan untuk pembayaran asuransi{" "}
+                        <b>Rp. 0,00</b>
                       </Text>
                     </Flex>
                   </Flex>
@@ -236,15 +199,7 @@ export default function Profile() {
                         color={theme.color.mild}
                         fontSize="small"
                       >
-                        produk investasi yang kamu miliki ada
-                      </Text>{" "}
-                      <Text
-                        fontWeight="bold"
-                        color={theme.color.mild}
-                        fontSize="small"
-                        paddingLeft={".2em"}
-                      >
-                        1 jenis
+                        produk investasi yang kamu miliki ada <b>1 jenis</b>
                       </Text>
                     </Flex>
                   </Flex>
@@ -262,15 +217,7 @@ export default function Profile() {
                         color={theme.color.mild}
                         fontSize="small"
                       >
-                        Uang yang kamu sisihkan untuk pensiun
-                      </Text>{" "}
-                      <Text
-                        fontWeight="bold"
-                        color={theme.color.mild}
-                        fontSize="small"
-                        paddingLeft={".2em"}
-                      >
-                        Rp. 0,00
+                        Uang yang kamu sisihkan untuk pensiun <b>Rp. 0,00</b>
                       </Text>
                     </Flex>
                   </Flex>
@@ -295,7 +242,8 @@ export default function Profile() {
                         color={theme.color.mild}
                         fontSize="small"
                       >
-                        uang hasil return investasi kamu mencapai <b>0% pengeluaran perbulan</b>
+                        uang hasil return investasi kamu mencapai{" "}
+                        <b>0% pengeluaran perbulan</b>
                       </Text>
                     </Flex>
                   </Flex>

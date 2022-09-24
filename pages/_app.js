@@ -4,6 +4,7 @@ import { useMediaQuery } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 import * as firebase from "firebase/app";
 import { firebaseCloudMessaging } from "../utils/firebase";
+import PushNotificationLayout from "../components/PushNotificationLayout";
 
 export const theme = extendTheme({
   fonts: {
@@ -45,7 +46,9 @@ function MyApp({ Component, pageProps }) {
               : { width: 480}
           }
         >
-          <Component {...pageProps} />
+          <PushNotificationLayout>
+            <Component {...pageProps} />
+          </PushNotificationLayout>
         </Box>
       </Box>
     </ChakraProvider>
