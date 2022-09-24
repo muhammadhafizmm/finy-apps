@@ -1,9 +1,11 @@
-import { Box, Flex, Image, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, Button, Link } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { theme } from "../pages/_app";
 
-const NAVBAR_DESKTOP_LIST_WIDTH = 520
+const NAVBAR_DESKTOP_LIST_WIDTH = 520;
 
 export default function Navbar() {
+  const router = useRouter();
   return (
     <Flex
       justifyContent={"space-between"}
@@ -37,9 +39,16 @@ export default function Navbar() {
           <Text fontWeight={"medium"}>EN</Text>
         </Flex>
         <Button
+          onClick={() => router.push("/login")}
           borderRadius={"10px"}
           background={theme.color.apple}
           color={theme.color.mild}
+          border="solid 2px transparent"
+          _hover={{
+            border: `solid 2px ${theme.color.apple}`,
+            color: theme.color.apple,
+            bg: theme.color.mild,
+          }}
         >
           <Text>Mulai Sekarang</Text>
         </Button>

@@ -12,7 +12,8 @@ export const theme = extendTheme({
     mild: "#FFFFFF",
     apple: "#ED1C24",
     rose: "#95302E",
-    black: "black"
+    ash: "#575B5F",
+    black: "#000000"
   }
 })
 
