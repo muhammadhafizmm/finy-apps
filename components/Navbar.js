@@ -40,7 +40,7 @@ export default function Navbar() {
             <Text fontWeight={"medium"}>Produk</Text>
             <Text fontWeight={"medium"}>Tentang Kami</Text>
             <Flex flexDirection={"row"} alignItems="center">
-              <Text fontWeight={theme.color.black} color={theme.color.apple}>
+              <Text fontWeight={"bold"} color={theme.color.apple}>
                 ID
               </Text>
               <Box paddingX={".7em"}>
