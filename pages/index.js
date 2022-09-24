@@ -55,6 +55,7 @@ export default function Home() {
           <Box>
             <Image
               w={"25vh"}
+              maxW={isMobile ? "unset" : "100%"}
               src="https://ik.imagekit.io/znmtfjgtk/Finy/Group_9__3__MBz9XcspV.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1664023310749"
             ></Image>
             <Box width={"35vh"} marginTop={"-1em"}>
