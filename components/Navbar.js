@@ -13,7 +13,7 @@ const NAVBAR_DESKTOP_LIST_WIDTH = 520;
 
 export default function Navbar() {
   const router = useRouter();
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 480px)");
   return (
     <Flex
       position={{ base: "relative", md: "absolute" }}
@@ -23,6 +23,7 @@ export default function Navbar() {
       w="100%"
       padding={{ base: "1em 1.5em", md: "1em 3em" }}
       boxShadow={"0px 10px 5px rgba(0, 0, 0, 0.08)"}
+      zIndex="10"
     >
       <Box>
         <Image

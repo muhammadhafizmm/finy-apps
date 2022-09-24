@@ -19,14 +19,14 @@ export const theme = extendTheme({
   },
   breakpoints: {
     sm: "320px",
-    md: "768px",
+    md: "480px",
     lg: "960px",
     xl: "1200px",
   },
 });
 
 function MyApp({ Component, pageProps }) {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 480px)");
 
   return (
     <ChakraProvider theme={theme}>
@@ -38,7 +38,13 @@ function MyApp({ Component, pageProps }) {
             : { display: "flex", justifyContent: "center" }
         }
       >
-        <Box style={isMobile ? { maxWidth: "100%" } : { width: 768 }}>
+        <Box
+          style={
+            isMobile
+              ? { maxWidth: "100%"}
+              : { width: 480}
+          }
+        >
           <Component {...pageProps} />
         </Box>
       </Box>

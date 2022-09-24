@@ -33,7 +33,7 @@ export default function Login() {
     async function setToken() {
       try {
         const token = await firebaseCloudMessaging.init();
-        console.log(token)
+        console.log(token);
         if (token) {
           console.log("token", token);
           return true;
@@ -58,9 +58,9 @@ export default function Login() {
       alignItems={"center"}
     >
       <Flex
-        w={{ base: "90%", md: "unset" }}
+        w={{ base: "90%" }}
         flexDirection={"column"}
-        padding={{ base: "2em", md: "2em 4em" }}
+        padding={{ base: "2em" }}
         bg={theme.color.mild}
         height="fit-content"
         borderRadius={"15px"}
@@ -68,28 +68,28 @@ export default function Login() {
         <Flex
           cursor={"pointer"}
           alignItems={"center"}
-          paddingBottom={{ base: "1em", md: "2em" }}
+          paddingBottom={{ base: "1em" }}
           onClick={() => router.push("/")}
         >
           <ArrowBackIcon />
           <Text
             fontWeight={"bold"}
             color={theme.color.black}
-            fontSize={{ base: "small", sm: "medium", md: "large" }}
+            fontSize={{ base: "small" }}
             marginLeft={".5em"}
           >
             Kembali
           </Text>
         </Flex>
-        <Box w={{ base: "100%", md: 500 }}>
+        <Box w={{ base: "100%" }}>
           <Image
-            w={{ base: "100px", md: "135px" }}
+            w={{ base: "100px" }}
             src="https://ik.imagekit.io/znmtfjgtk/Finy/logo-red-black_FYGp0atON.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663993532635"
           ></Image>
           <Text
             color={theme.color.ash}
             paddingBottom="2em"
-            fontSize={{ base: "small", md: "medium" }}
+            fontSize={{ base: "small" }}
           >
             Silakan masuk ke akun Anda untuk menghubungkan informasi transaksin
             anda
@@ -98,11 +98,11 @@ export default function Login() {
         <form>
           <FormControl>
             <FormLabel fontWeight={"bold"}>User ID</FormLabel>
-            <Input placeholder="ID One Mobile / Internet Banking" />
+            <Input placeholder="ID One Mobile / Internet Banking" value="test_user_hack@on" />
           </FormControl>
           <FormControl marginTop={"1em"}>
             <FormLabel fontWeight={"bold"}>Password</FormLabel>
-            <Input placeholder="Password One Mobile / Internet Banking" />
+            <Input placeholder="Password One Mobile / Internet Banking" value="cute12345" type="password"/>
           </FormControl>
           <Button
             onClick={async () => {
@@ -124,10 +124,7 @@ export default function Login() {
           >
             Masuk
           </Button>
-          <Text
-            color={theme.color.ash}
-            fontSize={{ base: "small", md: "medium" }}
-          >
+          <Text color={theme.color.ash} fontSize={{ base: "small" }}>
             Belum memiliki tabungan OCBC,{" "}
             <Link color={theme.color.marlboro}>Daftar sekarang!</Link>
           </Text>

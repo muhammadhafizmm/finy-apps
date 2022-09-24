@@ -14,7 +14,7 @@ import { theme } from "./_app";
 
 export default function Home() {
   const router = useRouter();
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 480px)");
   const [height, setHeight] = useState("100vh");
 
   useEffect(() => {
@@ -28,9 +28,9 @@ export default function Home() {
         bg={theme.color.apple}
         position="relative"
         height={`calc(${height} - ${isMobile ? "65px" : "73px"})`}
+        top={{ base: 0, md: 73 }}
         alignItems={"center"}
         flexDirection="column"
-        top={{ base: 0, md: 73 }}
         overflow={"hidden"}
       >
         <Flex

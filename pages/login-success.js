@@ -17,7 +17,7 @@ export default function LoginCheck() {
 
   useEffect(() => {
     setTimeout(() => {
-      window.location.replace("/")
+      window.location.replace("/u/profile")
     }, 3500);
   }, []);
 
