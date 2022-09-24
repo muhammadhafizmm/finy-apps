@@ -7,23 +7,23 @@ import {
 } from "@chakra-ui/react";
 import { theme } from "../pages/_app";
 
-export default function DotAnimation({ size }) {
+export default function DotAnimation({ size, color }) {
   const styles = {
     dot1: {
       position: "relative",
       width: `${size}px`,
       height: `${size}px`,
       borderRadius: "5px",
-      backgroundColor: `${theme.color.mild}`,
-      color: `${theme.color.mild}`,
+      backgroundColor: `${color}`,
+      color: `${color}`,
       display: " inline-block",
     },
     dot2: {
       width: `${size}px`,
       height: `${size}px`,
       borderRadius: "5px",
-      backgroundColor: `${theme.color.mild}`,
-      color: `${theme.color.mild}`,
+      backgroundColor: `${color}`,
+      color: `${color}`,
       display: "inline-block",
     },
 
@@ -31,7 +31,7 @@ export default function DotAnimation({ size }) {
       width: `${size}px`,
       height: `${size}px`,
       borderRadius: "5px",
-      backgroundColor: `${theme.color.mild}`,
+      backgroundColor: `${color}`,
       display: "inline-block",
     },
   };
