@@ -48,18 +48,18 @@ export default function Login() {
           </Text>
         </Box>
         <form>
-          <FormControl isRequired>
+          <FormControl>
             <FormLabel fontWeight={"bold"}>User ID</FormLabel>
             <Input placeholder="ID One Mobile / Internet Banking" />
           </FormControl>
-          <FormControl isRequired marginTop={"1em"}>
+          <FormControl marginTop={"1em"}>
             <FormLabel fontWeight={"bold"}>Password</FormLabel>
             <Input placeholder="Password One Mobile / Internet Banking" />
           </FormControl>
           <Button
+            onClick={() => router.push("/check-your-login-status")}
             bg={theme.color.apple}
             color={theme.color.mild}
-            type="submit"
             marginTop={"2em"}
             marginBottom={"1em"}
             border={"solid 2px transparent"}
