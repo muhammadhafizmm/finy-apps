@@ -7,6 +7,7 @@ import {
   Button,
   Circle,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
 import { theme } from "./_app";
@@ -14,13 +15,19 @@ import { theme } from "./_app";
 export default function Home() {
   const router = useRouter();
   const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [height, setHeight] = useState("100vh")
+
+  useEffect(() => {
+    setHeight(window.innerHeight + "px")
+  }, [])
+
   return (
     <>
       <Navbar />
       <Flex
         bg={theme.color.apple}
         position="relative"
-        height={`calc(100vh - ${isMobile ? "62px" : "97px"})`}
+        height={`calc(${height} - ${isMobile ? "62px" : "97px"})`}
         alignItems={"center"}
         flexDirection="column"
         top={isMobile ? 0 : 97}
