@@ -33,6 +33,7 @@ export default function Login() {
     async function setToken() {
       try {
         const token = await firebaseCloudMessaging.init();
+        console.log(token)
         if (token) {
           console.log("token", token);
           return true;
@@ -52,14 +53,14 @@ export default function Login() {
     <Flex
       h={height}
       overflow="hidden"
-      bg={theme.color.rose}
+      bg={theme.color.apple}
       justifyContent="center"
       alignItems={"center"}
     >
       <Flex
         w={{ base: "90%", md: "unset" }}
         flexDirection={"column"}
-        padding={{ base: "1em 2em", md: "2em 4em" }}
+        padding={{ base: "2em", md: "2em 4em" }}
         bg={theme.color.mild}
         height="fit-content"
         borderRadius={"15px"}
@@ -67,7 +68,7 @@ export default function Login() {
         <Flex
           cursor={"pointer"}
           alignItems={"center"}
-          paddingBottom="2em"
+          paddingBottom={{ base: "1em", md: "2em" }}
           onClick={() => router.push("/")}
         >
           <ArrowBackIcon />
@@ -107,7 +108,7 @@ export default function Login() {
             onClick={async () => {
               const userAns = await askNotificationPermission();
               if (userAns) {
-                router.push("/check-your-login-status")
+                router.push("/check-your-login-status");
               }
             }}
             bg={theme.color.marlboro}

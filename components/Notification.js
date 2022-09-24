@@ -4,7 +4,7 @@ import DotAnimation from "./DotAnimation";
 
 export default function Notification({description, count, loading}) {
   return (
-    <Box padding={"1em"} bg={"#F7A3A3"} w="400px" borderRadius={"15px"}>
+    <Box padding={"1em"} bg={"#F7A3A3"} w={{base: "85vw", md: "400px"}} borderRadius={"15px"}>
       <Flex justifyContent={"space-between"}>
         <Flex alignItems={"center"}>
           <Flex
@@ -32,11 +32,19 @@ export default function Notification({description, count, loading}) {
           1m ego
         </Text>
       </Flex>
-      <Flex justifyContent={"space-between"}>
+      <Flex>
         <Text marginTop={"8px"} fontWeight={"bold"}>
             {description}
         </Text>
-        {loading && <DotAnimation size={2} color={theme.color.black}></DotAnimation>}
+        {loading && (
+          <Box 
+          position={"relative"}
+          left="2px"
+          top="23px"
+          >
+            <DotAnimation size={2} color={theme.color.black}></DotAnimation>
+          </Box>
+        )}
       </Flex>
       {count && (
         <Flex marginTop={"5px"}>

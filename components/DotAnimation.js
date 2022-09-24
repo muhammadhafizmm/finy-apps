@@ -5,7 +5,6 @@ import {
   keyframes,
   usePrefersReducedMotion,
 } from "@chakra-ui/react";
-import { theme } from "../pages/_app";
 
 export default function DotAnimation({ size, color }) {
   const styles = {
