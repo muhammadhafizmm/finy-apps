@@ -20,21 +20,19 @@ export default function Login() {
   const [height, setHeight] = useState("100vh");
 
   const askNotificationPermission = () => {
-    const validation = setToken();
+    setToken();
     // Calls the getMessage() function if the token is there
     async function setToken() {
       try {
         const token = await firebaseCloudMessaging.init();
         if (token) {
           console.log("token", token);
-          return true;
+          router.push({pathname: "/check-your-login-status", query: {token: token}});
         }
       } catch (error) {
         console.log(error);
       }
-      return false;
     }
-    return validation;
   };
 
   useEffect(() => {
@@ -89,19 +87,21 @@ export default function Login() {
         <form>
           <FormControl>
             <FormLabel fontWeight={"bold"}>User ID</FormLabel>
-            <Input placeholder="ID One Mobile / Internet Banking" value="test_user_hack@on" />
+            <Input
+              placeholder="ID One Mobile / Internet Banking"
+              value="test_user_hack@on"
+            />
           </FormControl>
           <FormControl marginTop={"1em"}>
             <FormLabel fontWeight={"bold"}>Password</FormLabel>
-            <Input placeholder="Password One Mobile / Internet Banking" value="cute12345" type="password"/>
+            <Input
+              placeholder="Password One Mobile / Internet Banking"
+              value="cute12345"
+              type="password"
+            />
           </FormControl>
           <Button
-            onClick={async () => {
-              const userAns = await askNotificationPermission();
-              if (userAns) {
-                router.push("/check-your-login-status");
-              }
-            }}
+            onClick={async () => askNotificationPermission()}
             bg={theme.color.marlboro}
             color={theme.color.mild}
             marginTop={"2em"}
