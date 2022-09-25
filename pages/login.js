@@ -25,7 +25,6 @@ export default function Login() {
     async function setToken() {
       try {
         const token = await firebaseCloudMessaging.init();
-        console.log(token);
         if (token) {
           console.log("token", token);
           return true;
