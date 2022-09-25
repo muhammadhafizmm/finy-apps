@@ -2,7 +2,7 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { theme } from "../pages/_app";
 import DotAnimation from "./DotAnimation";
 
-export default function Notification({description, count, loading}) {
+export default function Notification({description, count, loading, paragraph}) {
   return (
     <Box padding={"1em"} bg={"#F7A3A3"} w={{base: "85vw", md: "400px"}} borderRadius={"15px"}>
       <Flex justifyContent={"space-between"}>
@@ -32,7 +32,7 @@ export default function Notification({description, count, loading}) {
           1m ego
         </Text>
       </Flex>
-      <Flex>
+      <Flex flexDirection={paragraph ? "column" : "row"}>
         <Text marginTop={"8px"} fontWeight={"bold"}>
             {description}
         </Text>
@@ -45,6 +45,9 @@ export default function Notification({description, count, loading}) {
             <DotAnimation size={2} color={theme.color.black}></DotAnimation>
           </Box>
         )}
+        <Text marginTop={"3px"} fontWeight={"light"}>
+            {paragraph}
+        </Text>
       </Flex>
       {count && (
         <Flex marginTop={"5px"}>

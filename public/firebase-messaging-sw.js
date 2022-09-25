@@ -1,9 +1,5 @@
-importScripts("https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js");
-importScripts("https://www.gstatic.com/firebasejs/7.9.1/firebase-messaging.js");
-importScripts(
-    "./precache-manifest.44d66ed330d1d3a52efe6ddf665b1b65.js"
-  );
-  
+importScripts('https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/7.14.0/firebase-messaging.js');
 
 firebase.initializeApp({
     apiKey: "AIzaSyAa6aMzTFlXKS8L0yoRuCIhnvhXLn8S1LU",
@@ -15,21 +11,14 @@ firebase.initializeApp({
 });
 
 const messaging = firebase.messaging();
-
 messaging.setBackgroundMessageHandler(function(payload) {
-    console.log('BackgroundMessageHandler registered')
-    const notificationTitle = payload.title;
+    console.log('[firebase-messaging-sw.js] Received background message ', payload);
+    // Customize notification here
+    const notificationTitle = payload.data.title;
     const notificationOptions = {
-        body: payload.body,
-        icon: 'alarm.png'
+      body: payload.data.body,
     };
-
-    return self.registration.showNotification('Nuevo pedido', {body:'Se ha registrado un nuevo pedido'});
-});
-
-workbox.core.setCacheNameDetails({prefix: "chatbot-dashboard"});
-self.addEventListener('message', (event) => {
-    if (event.data && event.data.type === 'SKIP_WAITING') {
-        self.skipWaiting();
-    }
-});
+  
+    return self.registration.showNotification(notificationTitle,
+      notificationOptions);
+  });
